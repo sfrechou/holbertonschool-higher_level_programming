@@ -11,6 +11,11 @@ int is_palindrome(listint_t **head)
 	int array[1024];
 	int len, j = 0, i;
 
+	if (!head)
+		return (0);
+	if (!*head || ((*head)->next != NULL))
+		return (1);
+
 	for (len = 0; temp2->next != NULL; len++)
 	{
 		temp2 = temp2->next;
