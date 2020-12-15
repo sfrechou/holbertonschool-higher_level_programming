@@ -1,0 +1,32 @@
+#include "lists.h"
+/**
+ * is_palindrome - prints all elements of a listint_t list
+ * @head: pointer to head of list
+ * Return: number of nodes
+ */
+
+int is_palindrome(listint_t **head)
+{
+	listint_t *temp = *head, *temp2 = *head;
+	int array[1024];
+	int len, j = 0, i;
+
+	for (len = 0; temp2->next != NULL; len++)
+	{
+		temp2 = temp2->next;
+	}
+	for (i = 0; i <= len; i++)
+	{
+		array[i] = temp->n;
+		temp = temp->next;
+	}
+
+	for (j = 0; j <= len; j++, len--)
+	{
+		if (array[j] != array[len])
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
