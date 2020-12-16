@@ -6,7 +6,7 @@
  */
 void print_python_list_info(PyObject *p)
 {
-	int size = PyList_Size(p) - 1;
+	int size = PyList_Size(p);
 	int index, alloc;
 	PyObject *item;
 
