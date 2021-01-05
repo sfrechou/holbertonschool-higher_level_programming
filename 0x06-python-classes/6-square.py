@@ -29,12 +29,7 @@ class Square:
     @size.setter
     def size(self, value):
         """property setter to set it"""
-        if not type(value) is int:
-            raise TypeError("size must be an integer")
-        elif value < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -44,14 +39,7 @@ class Square:
     @position.setter
     def position(self, value):
         """property setter to set it"""
-        if not type(value) is tuple or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif (not type(value[0]) is int) or (not type(value[1]) is int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+        self.__position = value
 
     def area(self):
         """Public instance method that returns the current square area"""
@@ -59,16 +47,15 @@ class Square:
 
     def my_print(self):
         """Public instance method that prints the square with the char #"""
+        if self.__size == 0:
+            print("")
+            return
         if self.__position[1] > 0:
             for l in range(0, self.__position[1]):
                 print("")
-        if self.__size > 0:
-            for i in range(0, self.__size):
-                if self.__position[0] > 0:
-                    for k in range(0, self.__position[0]):
-                        print(" ", end="")
-                for j in range(0, self.__size):
-                    print("#", end="")
-                print("")
-        else:
-            print("")
+        for i in range(0, self.__size):
+            if self.__position[0] > 0:
+                for k in range(0, self.__position[0]):
+                    print(" ", end="")
+            for j in range(0, self.__size):
+                print("#", end="")
