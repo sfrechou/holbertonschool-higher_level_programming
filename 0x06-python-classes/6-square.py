@@ -7,8 +7,19 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         """Instantiation with optional size and position"""
-        self.__size = size
-        self.__position = position
+        if not type(size) is int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        elif not type(position) is tuple or len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif (not type(position[0]) is int) or (not type(position[1]) is int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif position[0] < 0 or position[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__size = size
+            self.__position = position
 
     @property
     def size(self):
@@ -18,13 +29,7 @@ class Square:
     @size.setter
     def size(self, value):
         """property setter to set it"""
-        if type(value) is int:
-            if value >= 0:
-                self.__size = value
-            else:
-                raise ValueError("size must be >= 0")
-        else:
-            raise TypeError("size must be an integer")
+        self.__size = value
 
     @property
     def position(self):
@@ -34,11 +39,7 @@ class Square:
     @position.setter
     def position(self, value):
         """property setter to set it"""
-        if type(value) is tuple and len(value) is 2:
-            if value[0] > 0 and value[1] > 0:
-                self.__position = value
-        else:
-            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """Public instance method that returns the current square area"""
