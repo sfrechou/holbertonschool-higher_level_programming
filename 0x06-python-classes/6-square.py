@@ -47,8 +47,9 @@ class Square:
 
     def my_print(self):
         """Public instance method that prints the square with the char #"""
-        for l in range(0, self.__position[1]):
-            print("")
+        if self.__position[1] > 0:
+            for l in range(0, self.__position[1]):
+                print()
         if self.__size > 0:
             for i in range(0, self.__size):
                 for k in range(0, self.__position[0]):
