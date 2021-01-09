@@ -2,7 +2,8 @@
 """
 Module that defines function that prints a square with the character #.
 size must be an integer, otherwise raise a TypeError exception
-size is less than 0, raise a ValueError exception"""
+size is less than 0, raise a ValueError exception
+"""
 
 
 def print_square(size):
