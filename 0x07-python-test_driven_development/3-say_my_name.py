@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Module that defines function that prints My name is <first name> <last name>.
-first_name and last_name must be strings otherwise, raise a TypeError exception.
+Module that defines function that prints
+My name is <first name> <last name>.
+first_name and last_name must be strings
 """
 
 
