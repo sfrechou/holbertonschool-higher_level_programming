@@ -62,9 +62,10 @@ class Rectangle:
     def __str__(self):
         """Prints the rectangle with #'s"""
         sq = ""
-        for i in range(self.__height):
-            for j in range(self.__width):
-                sq += "#"
-            if i < self.__height - 1:
-                sq += "\n"
+        if self.__width > 0 or self.__height > 0:
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    sq += "#"
+                if i < self.__height - 1:
+                    sq += "\n"
         return sq
