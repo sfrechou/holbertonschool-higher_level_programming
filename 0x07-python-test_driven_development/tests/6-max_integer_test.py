@@ -13,8 +13,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer(list=[-1000, 0, -4, -150]), 0)
         self.assertEqual(max_integer(list=[-100, -110, -400, -150]), -100)
         self.assertEqual(max_integer(list=[5, 5, 5]), 5)
-        self.assertEqual(max_integer(list=["Hello"]), "Hello")
-        self.assertEqual(max_integer(list="Hello"), "o")
         self.assertEqual(max_integer(list=[100.5, 100.4, 100.6]), 100.6)
         self.assertEqual(max_integer(list=[100.5, 100, 100.6]), 100.6)
 
