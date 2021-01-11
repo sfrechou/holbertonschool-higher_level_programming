@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module for task 9. A square is a rectangle
+Module for task 8. Compare rectangles
 """
 
 
