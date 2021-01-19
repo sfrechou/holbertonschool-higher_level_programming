@@ -81,6 +81,13 @@ Test: Passing one string and a dict
         ...
         TypeError: Test must be an integer
 
+Test: Passing one string and a tuple
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("Hey", (4, ))
+        Traceback (most recent call last):
+        ...
+        TypeError: Hey must be an integer
+
 Test: Passing one string and inf
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("20", float('inf))
