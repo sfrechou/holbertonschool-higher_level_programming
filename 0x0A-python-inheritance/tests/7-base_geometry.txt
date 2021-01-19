@@ -12,8 +12,10 @@ Import function:
         >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
         >>> bg = BaseGeometry()
-        >>> dir(bg) == dir(BaseGeometry)
-        True
+        >>> bg.area()
+        Traceback (most recent call last):
+        ...
+        Exception: area() is not implemented
 
 Test: Passing one string one int
         >>> bg = BaseGeometry()
