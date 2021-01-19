@@ -28,6 +28,12 @@ Test if my_list not instantiated:
         ...
         AttributeError: 'list' object has no attribute 'print_sorted'
 
+Test if my_list not instantiated:
+        >>> my_list = MyList([1, 10, 100])
+        >>> my_list.print_sorted()
+        [1, 10, 100]
+
+
 Test: list with positive ints
         >>> my_list = MyList()
         >>> my_list.append(1)
