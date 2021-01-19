@@ -68,6 +68,13 @@ Test: Passing one string and a big number
         ...
         TypeError: 20 must be an integer
 
+Test: Passing one string and a dict
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("Test", {3, 4})
+        Traceback (most recent call last):
+        ...
+        TypeError: Test must be an integer
+
 Test: Passing one string and inf
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("20", float('inf))
