@@ -8,4 +8,6 @@ class MyList(list):
     """class that inherits from list"""
     def print_sorted(self):
         """ list available attributes of object"""
-        print(sorted(self))
+        new = self[:]
+        new.sort()
+        print("{}".format(new))
