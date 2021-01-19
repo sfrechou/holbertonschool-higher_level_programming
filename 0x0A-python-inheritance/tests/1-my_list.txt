@@ -11,6 +11,16 @@ If anything doesn't match exactly (including trailing spaces), the test fails.
 Import function:
         >>> MyList = __import__('1-my_list').MyList
 
+Test if my_list is instance of MyList:
+        >>> my_list = MyList()
+        >>> isinstance(my_list, MyList)
+        True
+
+Test if my_list is instance of list:
+        >>> my_list = MyList()
+        >>> isinstance(my_list, list)
+        True
+
 Test: list with positive ints
         >>> my_list = MyList()
         >>> my_list.append(1)
