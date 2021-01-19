@@ -89,6 +89,13 @@ Test: Passing one string and a complex number
         ...
         TypeError: float must be an integer
 
+Test: Passing one string and a boolean
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("float", False)
+        Traceback (most recent call last):
+        ...
+        TypeError: float must be an integer
+
 Test: Passing one string and None
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("20", None)
