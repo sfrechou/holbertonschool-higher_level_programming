@@ -21,6 +21,13 @@ Test if my_list is instance of list:
         >>> isinstance(my_list, list)
         True
 
+Test if my_list not instantiated:
+        >>> my_list = [1, 10, 100]
+        >>> my_list.print_sorted()
+        Traceback (most recent call last):
+        ...
+        AttributeError: 'list' object has no attribute 'print_sorted'
+
 Test: list with positive ints
         >>> my_list = MyList()
         >>> my_list.append(1)
@@ -79,7 +86,7 @@ Test: list with ints and string
         ...
         TypeError: unorderable types: str() < int()
 
-Test: list with ints and string
+Test: list with only strings
         >>> my_list = MyList()
         >>> my_list.append("one")
         >>> my_list.append("three")
@@ -153,7 +160,7 @@ Test: list with NaN and inf
         >>> my_list.print_sorted()
         [nan, 10, inf]
 
-Test: list with NaN and inf
+Test: list with list and ints
         >>> my_list = MyList()
         >>> my_list.append([1, 2])
         >>> my_list.append(10)
