@@ -15,9 +15,8 @@ class Student:
         my_dict = {}
         if attrs is not None:
             for i in attrs:
-                if type(i) is str:
-                    if i in self.__dict__:
-                        my_dict[i] = self.__dict__[i]
-                        return my_dict
+                if i in self.__dict__:
+                    my_dict[i] = self.__dict__[i]
+                    return my_dict
         else:
             return self.__dict__
