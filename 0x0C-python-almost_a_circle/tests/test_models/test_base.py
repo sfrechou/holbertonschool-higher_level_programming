@@ -63,7 +63,7 @@ class TestingBase(unittest.TestCase):
         Base._Base__nb_objects = 0
         base1 = Base(None)
         self.assertEqual(base1.id, 1)
-    
+
     def test_more_args_base(self):
         """Base with more args"""
         with self.assertRaises(TypeError):
