@@ -17,6 +17,9 @@ class TestingRectangle(unittest.TestCase):
             """Width Rectangle"""
             Base._Base__nb_objects = 0
             with self.assertRaises(TypeError):
+                r0 = Rectangle(1)
+
+            with self.assertRaises(TypeError):
                 r1 = Rectangle("hello", 2)
 
             with self.assertRaises(TypeError):

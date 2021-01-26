@@ -12,8 +12,8 @@ from models.square import Square
 class TestingBase(unittest.TestCase):
     """class for Test Base"""
 
-    def test_Id1(self):
-        """test Id only"""
+    def test_base_repeated_id(self):
+        """Base repeated ID"""
         Base._Base__nb_objects = 0
         b1 = Base()
         b2 = Base()
@@ -26,6 +26,9 @@ class TestingBase(unittest.TestCase):
         self.assertEqual(b4.id, 3)
         self.assertEqual(b5.id, 7)
 
+    def test_base_types(self):
+        """Base types"""
+        Base._Base__nb_objects = 0
         self.assertEqual(str(type(Base)), "<class 'type'>")
 
         self.assertEqual(str(type(Rectangle)), "<class 'type'>")
@@ -54,6 +57,17 @@ class TestingBase(unittest.TestCase):
         sq2 = Square(4)
         sq3 = Square(4)
         self.assertEqual(sq2 is sq3, False)
+
+    def test_None_base(self):
+        """Base empty"""
+        Base._Base__nb_objects = 0
+        base1 = Base(None)
+        self.assertEqual(base1.id, 1)
+    
+    def test_more_args_base(self):
+        """Base with more args"""
+        with self.assertRaises(TypeError):
+            base1 = Base(1, 2)
 
     # TO JSON STRING
     def test1_to_json_string(self):
