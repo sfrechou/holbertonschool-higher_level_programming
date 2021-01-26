@@ -39,10 +39,10 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 * We strongly encourage you to work together on test cases so that you don’t miss any edge case
 
 ## Tasks
-0. If it's not tested it doesn't work
+#### 0. If it's not tested it doesn't work
 All your files, classes and methods must be unit tested and be PEP 8 validated.
 
-1. Base class
+#### 1. Base class
 Write the first class Base:
 
 Create a folder named models with an empty file __init__.py inside - with this file, the folder will become a Python package
@@ -56,7 +56,7 @@ Create a file named models/base.py:
         * otherwise, increment __nb_objects and assign the new value to the public instance attribute id
 This class will be the “base” of all other classes in this project. The goal of it is to manage id attribute in all your future classes and to avoid duplicating the same code (by extension, same bugs)
 
-2. First Rectangle
+#### 2. First Rectangle
 Write the class Rectangle that inherits from Base:
 
 * In the file models/rectangle.py
@@ -73,26 +73,26 @@ Why private attributes with getter/setter? Why not directly public attribute?
 
 Because we want to protect attributes of our class. With a setter, you are able to validate what a developer is trying to assign to a variable. So after, in your class you can “trust” these attributes.
 
-3. Validate attributes
+#### 3. Validate attributes
 Update the class Rectangle by adding validation of all setter methods and instantiation (id excluded):
 
 * If the input is not an integer, raise the TypeError exception with the message: <name of the attribute> must be an integer. Example: width must be an integer
 * If width or height is under or equals 0, raise the ValueError exception with the message: <name of the attribute> must be > 0. Example: width must be > 0
 * If x or y is under 0, raise the ValueError exception with the message: <name of the attribute> must be >= 0. Example: x must be >= 0
 
-4. Area first
+#### 4. Area first
 Update the class Rectangle by adding the public method def area(self): that returns the area value of the Rectangle instance.
 
-5. Display #0
+#### 5. Display #0
 Update the class Rectangle by adding the public method def display(self): that prints in stdout the Rectangle instance with the character # - you don’t need to handle x and y here.
 
-6. __str__
+#### 6. __str__
 Update the class Rectangle by overriding the __str__ method so that it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
 
-7. Display #1
+#### 7. Display #1
 Update the class Rectangle by improving the public method def display(self): to print in stdout the Rectangle instance with the character # by taking care of x and y
 
-8. Update #0
+#### 8. Update #0
 Update the class Rectangle by adding the public method def update(self, *args): that assigns an argument to each attribute:
 
 * 1st argument should be the id attribute
@@ -102,7 +102,7 @@ Update the class Rectangle by adding the public method def update(self, *args): 
 * 5th argument should be the y attribute
 This type of argument is called a “no-keyword argument” - Argument order is super important.
 
-9. Update #1
+#### 9. Update #1
 Update the class Rectangle by updating the public method def update(self, *args): by changing the prototype to update(self, *args, **kwargs) that assigns a key/value argument to attributes:
 
 * **kwargs can be thought of as a double pointer to a dictionary: key/value
@@ -111,7 +111,7 @@ Update the class Rectangle by updating the public method def update(self, *args)
 * Each key in this dictionary represents an attribute to the instance
 This type of argument is called a “key-worded argument”. Argument order is not important.
 
-10. And now, the Square!
+#### 10. And now, the Square!
 Write the class Square that inherits from Rectangle:
 
 * In the file models/square.py
@@ -123,13 +123,13 @@ Write the class Square that inherits from Rectangle:
 * The overloading __str__ method should return [Square] (<id>) <x>/<y> - <size> - in our case, width or height
 As you know, a Square is a special Rectangle, so it makes sense this class Square inherits from Rectangle. Now you have a Square class who has the same attributes and same methods.
 
-11. Square size
+#### 11. Square size
 Update the class Square by adding the public getter and setter size
 
 * The setter should assign (in this order) the width and the height - with the same value
 * The setter should have the same value validation as the Rectangle for width and height - No need to change the exception error message (It should be the one from width)
 
-12. Square update
+#### 12. Square update
 Update the class Square by adding the public method def update(self, *args, **kwargs) that assigns attributes:
 
 * *args is the list of arguments - no-keyworded arguments
@@ -141,7 +141,7 @@ Update the class Square by adding the public method def update(self, *args, **kw
 * **kwargs must be skipped if *args exists and is not empty
 * Each key in this dictionary represents an attribute to the instance
 
-13. Rectangle instance to dictionary representation
+#### 13. Rectangle instance to dictionary representation
 Update the class Rectangle by adding the public method def to_dictionary(self): that returns the dictionary representation of a Rectangle:
 
 This dictionary must contain:
@@ -152,7 +152,7 @@ This dictionary must contain:
 * x
 * y
 
-14. Square instance to dictionary representation
+#### 14. Square instance to dictionary representation
 Update the class Square by adding the public method def to_dictionary(self): that returns the dictionary representation of a Square:
 
 This dictionary must contain:
@@ -162,7 +162,7 @@ This dictionary must contain:
 * x
 * y
 
-15. Dictionary to JSON string
+#### 15. Dictionary to JSON string
 JSON is one of the standard formats for sharing data representation.
 
 Update the class Base by adding the static method def to_json_string(list_dictionaries): that returns the JSON string representation of list_dictionaries:
@@ -171,7 +171,7 @@ Update the class Base by adding the static method def to_json_string(list_dictio
 * If list_dictionaries is None or empty, return the string: "[]"
 * Otherwise, return the JSON string representation of list_dictionaries
 
-16. JSON string to file
+#### 16. JSON string to file
 Update the class Base by adding the class method def save_to_file(cls, list_objs): that writes the JSON string representation of list_objs to a file:
 
 * list_objs is a list of instances who inherits of Base - example: list of Rectangle or list of Square instances
@@ -180,14 +180,14 @@ Update the class Base by adding the class method def save_to_file(cls, list_objs
 * You must use the static method to_json_string (created before)
 * You must overwrite the file if it already exists
 
-17. JSON string to dictionary 
+#### 17. JSON string to dictionary 
 Update the class Base by adding the static method def from_json_string(json_string): that returns the list of the JSON string representation json_string:
 
 * json_string is a string representing a list of dictionaries
 * If json_string is None or empty, return an empty list
 * Otherwise, return the list represented by json_string
 
-18. Dictionary to Instance
+#### 18. Dictionary to Instance
 Update the class Base by adding the class method def create(cls, **dictionary): that returns an instance with all attributes already set:
 
 * **dictionary can be thought of as a double pointer to a dictionary
@@ -198,7 +198,7 @@ Update the class Base by adding the class method def create(cls, **dictionary): 
 * **dictionary must be used as **kwargs of the method update
 * You are not allowed to use eval
 
-19. File to instances mandatory
+#### 19. File to instances
 Update the class Base by adding the class method def load_from_file(cls): that returns a list of instances:
 
 * The filename must be: <Class name>.json - example: Rectangle.json
@@ -206,7 +206,7 @@ Update the class Base by adding the class method def load_from_file(cls): that r
 * Otherwise, return a list of instances - the type of these instances depends on cls (current class using this method)
 * You must use the from_json_string and create methods (implemented previously)
 
-20. JSON ok, but CSV? #advanced
+#### 20. JSON ok, but CSV? #advanced
 Update the class Base by adding the class methods def save_to_file_csv(cls, list_objs): and def load_from_file_csv(cls): that serializes and deserializes in CSV:
 
 * The filename must be: <Class name>.csv - example: Rectangle.csv
