@@ -295,7 +295,7 @@ class TestingBase(unittest.TestCase):
         """ test json to dict """
         json_list_input3 = None
         list_output3 = Rectangle.from_json_string(json_list_input3)
-        self.assertEqual(list_output3, '[]')
+        self.assertEqual(list_output3, [])
 
     def test4_jsonstr_to_dic(self):
         """ test json to dict """
