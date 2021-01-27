@@ -431,9 +431,19 @@ class TestingBase(unittest.TestCase):
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
 
-    def test_fjs_empty(self):
-        """Tests from_json_string with an empty string"""
-        self.assertEqual([], Base.from_json_string(""))
+    def test_from_json_string(self):
+        """Tests regular from_json_string"""
+        json_str = '[{"id": 9, "width": 5, "height": 6, "x": 7, "y": 8}, \
+                     {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0}]'
+        json_l = Base.from_json_string(json_str)
+        self.assertTrue(type(json_l) is list)
+        self.assertEqual(len(json_l), 2)
+        self.assertTrue(type(json_l[0]) is dict)
+        self.assertTrue(type(json_l[1]) is dict)
+        self.assertEqual(json_l[0],
+                         {"id": 9, "width": 5, "height": 6, "x": 7, "y": 8})
+        self.assertEqual(json_l[1],
+                         {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0})
 
 if __name__ == '__main__':
     unittest.main()
