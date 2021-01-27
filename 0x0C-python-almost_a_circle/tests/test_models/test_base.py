@@ -456,6 +456,13 @@ class TestingBase(unittest.TestCase):
         Base._Base__nb_objects = 0
         list_squares_output = Square.load_from_file()
         self.assertEqual(list_squares_output, [])
+
+    def test_load_from_file3(self):
+        """ load from file test """
+        list_objs = []
+        Square.save_to_file(list_objs)
+        list_sq_output = Square.load_from_file()
+        self.assertEqual(list_sq_output, [])
             
 
 if __name__ == '__main__':
