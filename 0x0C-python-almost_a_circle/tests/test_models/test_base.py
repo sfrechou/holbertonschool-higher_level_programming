@@ -451,6 +451,12 @@ class TestingBase(unittest.TestCase):
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
 
+    def test_load_from_file(self):
+        """ load from file test """
+        Base._Base__nb_objects = 0
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(list_rectangles_output, [])
+            
 
 if __name__ == '__main__':
     unittest.main()
