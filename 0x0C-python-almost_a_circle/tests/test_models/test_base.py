@@ -201,6 +201,13 @@ class TestingBase(unittest.TestCase):
             list_output = Rectangle.from_json_string(file1)
             self.assertEqual(list_output, lista)
 
+    def test3_json_to_file25(self):
+        """ test json string into file"""
+        Base._Base__nb_objects = 0
+        with self.assertRaises(TypeError):
+            r1 = Rectangle(2, 4)
+            Rectangle.save_to_file()
+
     def test3_json_to_file3(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
@@ -431,13 +438,6 @@ class TestingBase(unittest.TestCase):
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
 
-    def test_nb_private(self):
-        """Tests nb_objects as a private instance attribute"""
-        b = Base(3)
-        with self.assertRaises(AttributeError):
-            print(b.nb_objects)
-        with self.assertRaises(AttributeError):
-            print(b.__nb_objects)
 
 if __name__ == '__main__':
     unittest.main()
