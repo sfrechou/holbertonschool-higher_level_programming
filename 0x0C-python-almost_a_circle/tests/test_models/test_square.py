@@ -621,7 +621,12 @@ class TestingSquare(unittest.TestCase):
         self.assertEqual(str(r2), "[Square] (10) 1/10 - 10")
 
     # CREATE
-    def test_create(self):
+    def test_create1(self):
+        """test normal use of create"""
+        s1 = {"id": 2, "size": 3, "x": 4, "y": 0}
+        s1c = Square.create(**s1)
+
+    def test_create2(self):
         """test normal use of create"""
         s1 = {"id": 2, "size": 3, "x": 4, "y": 0}
         s1c = Square.create(**s1)
