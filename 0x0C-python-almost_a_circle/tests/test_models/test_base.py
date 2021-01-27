@@ -282,7 +282,9 @@ class TestingBase(unittest.TestCase):
     def test10_json_to_file9(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
-        self.assertEqual(Square.save_to_file(None), None)
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
 
     # JSON STRING TO DICT
     def test0_json_str_to_dic(self):
