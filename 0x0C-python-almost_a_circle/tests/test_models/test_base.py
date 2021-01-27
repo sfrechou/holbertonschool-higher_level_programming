@@ -431,5 +431,9 @@ class TestingBase(unittest.TestCase):
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
 
+    def test_fjs_None(self):
+        """Tests from_json_string with an empty string"""
+        self.assertEqual([], Base.from_json_string(None))
+
 if __name__ == '__main__':
     unittest.main()
