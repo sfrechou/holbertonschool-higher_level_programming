@@ -440,7 +440,7 @@ class TestingBase(unittest.TestCase):
             r5 = Rectangle.create(2)
 
     # LOAD FROM FILE
-    def test_load_from_file(self):
+    def test_load_from_file1(self):
         """ load from file test """
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 7, 2, 8)
@@ -451,11 +451,11 @@ class TestingBase(unittest.TestCase):
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
 
-    def test_load_from_file(self):
+    def test_load_from_file2(self):
         """ load from file test """
         Base._Base__nb_objects = 0
-        list_rectangles_output = Rectangle.load_from_file()
-        self.assertEqual(list_rectangles_output, [])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(list_squares_output, [])
             
 
 if __name__ == '__main__':
