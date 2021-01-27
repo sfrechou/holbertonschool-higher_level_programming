@@ -280,16 +280,16 @@ class TestingBase(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file()
 
-    def test_stf_None(self):
-        """test save_to_file with None"""
+    def test_json_to_file11(self):
+        """ test json string into file"""
         Square.save_to_file(None)
-        with open("Square.json", "r") as f:
-            self.assertEqual("[]", f.read())
+        with open("Square.json", "r") as my_file:
+            self.assertEqual("[]", my_file.read())
 
     def test_json_to_file10(self):
         """ test json string into filee"""
-        s1 = Square(1, 1, 1, 1)
-        s2 = Square(2, 2, 2, 2)
+        s1 = Square(1, 2, 3, 4)
+        s2 = Square(1, 2, 3, 4)
         list_sq_input = [s1, s2]
         Square.save_to_file(list_sq_input)
         with open("Square.json", "r") as my_file:
