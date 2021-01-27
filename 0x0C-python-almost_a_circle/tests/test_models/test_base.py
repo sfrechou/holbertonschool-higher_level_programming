@@ -202,13 +202,23 @@ class TestingBase(unittest.TestCase):
             self.assertEqual(list_output, lista)
 
     def test3_json_to_file25(self):
-        """ test json string into file"""
+        """ test json string into file None Rectangle"""
         r1 = Rectangle(2, 4)
         Rectangle.save_to_file(None)
         lista = []
         with open("Rectangle.json", "r") as file:
             file1 = file.read()
             list_output = Rectangle.from_json_string(file1)
+            self.assertEqual(list_output, lista)
+
+    def test3_json_to_file25(self):
+        """ test json string into file None Square"""
+        s1 = Square(4)
+        Square.save_to_file(None)
+        lista = []
+        with open("Square.json", "r") as file:
+            file1 = file.read()
+            list_output = Square.from_json_string(file1)
             self.assertEqual(list_output, lista)
 
     def test3_json_to_file3(self):
