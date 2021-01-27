@@ -459,10 +459,11 @@ class TestingBase(unittest.TestCase):
 
     def test_load_from_file3(self):
         """ load from file test """
-        list_objs = []
-        Square.save_to_file(list_objs)
-        list_sq_output = Square.load_from_file()
-        self.assertEqual(list_sq_output, [])
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        self.assertEqual(Square.load_from_file(), [])
             
 
 if __name__ == '__main__':
