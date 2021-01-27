@@ -623,12 +623,17 @@ class TestingSquare(unittest.TestCase):
     # CREATE
     def test_create1(self):
         """test normal use of create"""
-        s1 = {"id": 2, "size": 3, "x": 4, "y": 0}
+        s1 = {'id': 89}
         s1c = Square.create(**s1)
 
     def test_create2(self):
         """test normal use of create"""
-        s1 = {"id": 2, "size": 3, "x": 4, "y": 0}
+        s1 = {'id': 89, 'size': 1, 'x': 2, 'y': 3}
+        s1c = Square.create(**s1)
+
+    def test_create3(self):
+        """test normal use of create"""
+        s1 = {'id': 89, 'size': 1}
         s1c = Square.create(**s1)
 
 if __name__ == '__main__':
