@@ -203,10 +203,13 @@ class TestingBase(unittest.TestCase):
 
     def test3_json_to_file25(self):
         """ test json string into file"""
-        Base._Base__nb_objects = 0
-        with self.assertRaises(TypeError):
-            r1 = Rectangle(2, 4)
-            Rectangle.save_to_file()
+        r1 = Rectangle(2, 4)
+        Rectangle.save_to_file(None)
+        lista = []
+        with open("Rectangle.json", "r") as file:
+            file1 = file.read()
+            list_output = Rectangle.from_json_string(file1)
+            self.assertEqual(list_output, lista)
 
     def test3_json_to_file3(self):
         """ test json string into file"""
