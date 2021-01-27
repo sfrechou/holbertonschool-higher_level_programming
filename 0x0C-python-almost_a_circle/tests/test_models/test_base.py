@@ -461,20 +461,6 @@ class TestingBase(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
-
-    def test_load_from_file2(self):
-        """ load from file test """
-        Base._Base__nb_objects = 0
-        list_squares_output = Square.load_from_file()
-        self.assertEqual(list_squares_output, [])
-
-    def test_load_from_file3(self):
-        """ load from file test """
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-        self.assertEqual(Square.load_from_file(), [])
             
 
 if __name__ == '__main__':
