@@ -431,11 +431,13 @@ class TestingBase(unittest.TestCase):
         self.assertEqual([i.__dict__ for i in list_rectangles_input],
                          [i.__dict__ for i in list_rectangles_output])
 
-    def test_empty_to_json_string(self):
-        """Test for passing empty list/ None"""
-        json_s = Base.to_json_string([])
-        self.assertTrue(type(json_s) is str)
-        self.assertEqual(json_s, "[]")
+    def test_nb_private(self):
+        """Tests nb_objects as a private instance attribute"""
+        b = Base(3)
+        with self.assertRaises(AttributeError):
+            print(b.nb_objects)
+        with self.assertRaises(AttributeError):
+            print(b.__nb_objects)
 
 if __name__ == '__main__':
     unittest.main()
