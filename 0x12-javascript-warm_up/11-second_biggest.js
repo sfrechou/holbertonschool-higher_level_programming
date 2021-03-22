@@ -7,16 +7,35 @@ if (process.argv.length < 4) {
   let biggest = numbers[0];
   let secondBigg = numbers[0];
   let i;
-  for (i = 0; i < numbers.length; i++) {
-    if (numbers[i] > biggest) {
-      biggest = numbers[i];
+  const negative = numbers.every(function (e) {
+    return e < 0;
+  });
+  if (negative === true) {
+    console.log('aqui');
+    for (i = 0; i < numbers.length; i++) {
+      if (numbers[i] < biggest) {
+        biggest = numbers[i];
+      }
     }
-  }
-  const indexBigg = numbers.indexOf(biggest);
-  numbers.splice(indexBigg, 1);
-  for (i = 0; i < numbers.length; i++) {
-    if (numbers[i] > secondBigg) {
-      secondBigg = numbers[i];
+    const indexBigg = numbers.indexOf(biggest);
+    numbers.splice(indexBigg, 1);
+    for (i = 0; i < numbers.length; i++) {
+      if (numbers[i] < secondBigg) {
+        secondBigg = numbers[i];
+      }
+    }
+  } else {
+    for (i = 0; i < numbers.length; i++) {
+      if (numbers[i] > biggest) {
+        biggest = numbers[i];
+      }
+    }
+    const indexBigg = numbers.indexOf(biggest);
+    numbers.splice(indexBigg, 1);
+    for (i = 0; i < numbers.length; i++) {
+      if (numbers[i] > secondBigg) {
+        secondBigg = numbers[i];
+      }
     }
   }
   console.log(secondBigg);
