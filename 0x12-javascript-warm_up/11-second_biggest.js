@@ -4,8 +4,8 @@ if (process.argv.length < 4) {
   console.log(1);
 } else {
   const numbers = process.argv.slice(2);
-  let biggest = 0;
-  let secondBigg = 0;
+  let biggest = numbers[0];
+  let secondBigg = numbers[0];
   let i;
   for (i = 0; i < numbers.length; i++) {
     if (numbers[i] > biggest) {
