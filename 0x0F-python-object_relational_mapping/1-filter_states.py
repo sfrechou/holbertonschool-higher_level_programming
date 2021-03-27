@@ -13,16 +13,12 @@ if __name__ == "__main__":
     USER = argv[1]
     PASSWORD = argv[2]
     DATABASE = argv[3]
-
-    try:
-        db = MySQLdb.connect(host=HOST, user=USER, password=PASSWORD,
-                            db=DATABASE, port=PORT)
-        cursor = db.cursor()
-        cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-        rows = cursor.fetchall()
-        for r in rows:
-            print(r)
-        cursor.close()
-        db.close()
-    except Exception as e:
-        print("ERROR: {}".format(e))
+    db = MySQLdb.connect(host=HOST, user=USER, password=PASSWORD,
+                         db=DATABASE, port=PORT)
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+    rows = cursor.fetchall()
+    for r in rows:
+        print(r)
+    cursor.close()
+    db.close()
