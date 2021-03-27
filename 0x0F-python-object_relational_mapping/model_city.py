@@ -12,7 +12,3 @@ class City(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(128))
     state_id = Column(Integer, ForeignKey('states.id'))
-
-    def __init__(self, name):
-        """Initialization method"""
-        self.name = name
