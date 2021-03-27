@@ -19,16 +19,13 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host=HOST, user=USER, password=PASSWORD,
                          db=DATABASE, port=PORT)
     cursor = db.cursor()
-    cursor.execute("SELECT cities.name \
+    cursor.execute("SELECT GROUP_CONCAT(cities.name SEPARATOR ', ') \
                     FROM cities \
                     INNER JOIN states \
                     ON states.name = %s \
                     WHERE cities.state_id = states.id \
                     ORDER BY cities.id ASC;", (ST_NAME,))
-    rows = cursor.fetchall()
-    rows = [i[0] for i in rows]
-    for r in range(0, len(rows)):
-        if r == len(rows) - 1:
-            print("{}".format(rows[r]))
-        else:
-            print("{}, ".format(rows[r]), end="")
+    rows = cursor.fetchone()
+    print(rows[0] if rows[0] is not None else "")
+    cursor.close()
+    db.close()
