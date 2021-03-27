@@ -21,4 +21,5 @@ if __name__ == "__main__":
                    name = '{}' ORDER BY id".format(NAME))
     rows = cursor.fetchall()
     for r in rows:
-        print(r)
+        if r[1] == NAME:
+            print(r)
