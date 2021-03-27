@@ -13,7 +13,7 @@ if __name__ == "__main__":
     USER = argv[1]
     PASSWORD = argv[2]
     DATABASE = argv[3]
-    db = MySQLdb.connect(host=HOST, user=USER, password=PASSWORD,
+    db = MySQLdb.connect(host=HOST, user=USER, passwd=PASSWORD,
                          db=DATABASE, port=PORT)
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
