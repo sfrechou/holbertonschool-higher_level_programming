@@ -19,7 +19,7 @@ if __name__ == "__main__":
     cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
     rows = cursor.fetchall()
     for r in rows:
-    # This if is redundant, but checker needs it apparently
+        # This if is redundant, but checker needs it apparently
         if r[1][0] == 'N':
             print(r)
     cursor.close()
