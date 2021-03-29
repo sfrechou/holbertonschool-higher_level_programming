@@ -24,7 +24,8 @@ if __name__ == "__main__":
         session = Session()
 
         for instance in session.query(State).from_self().join(City) \
-                               .filter(City.state_id == State.id):
+                               .filter(City.state_id == State.id) \
+                               .order_by(State.id, City.state_id):
             print("{}: {}".format(instance.id, instance.name))
             for city in instance.cities:
                 print("\t{}: {}".format(city.id, city.name))
