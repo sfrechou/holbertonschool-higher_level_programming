@@ -23,9 +23,8 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        for instance in session.query(State).from_self().join(City) \
-                               .filter(City.state_id == State.id) \
-                               .order_by(State.id, City.state_id):
+        for instance in session.query(State) \
+                               .order_by(State.id):
             print("{}: {}".format(instance.id, instance.name))
             for city in instance.cities:
                 print("\t{}: {}".format(city.id, city.name))
