@@ -5,7 +5,6 @@ from relationship_state import Base, State
 import sqlalchemy
 
 
-
 class City(Base):
     """Class City declaration"""
     __tablename__ = 'cities'
