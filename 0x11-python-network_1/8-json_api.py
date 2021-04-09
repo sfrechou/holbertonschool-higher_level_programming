@@ -8,18 +8,19 @@ import requests
 from sys import argv
 
 
-if len(argv) > 1:
-    q = argv[1]
-else:
-    q = ""
-
-values = {'q': q}
-r = requests.post('http://0.0.0.0:5000/search_user', data=values)
-try:
-    result = r.json()
-    if result:
-        print("[{}] {}".format(result['id'], result['name']))
+if __name__ == "__main__":
+    if len(argv) > 1:
+        q = argv[1]
     else:
-        print("No result")
-except:
-    print("Not a valid JSON")
+        q = ""
+
+    values = {'q': q}
+    r = requests.post('http://0.0.0.0:5000/search_user', data=values)
+    try:
+        result = r.json()
+        if result:
+            print("[{}] {}".format(result['id'], result['name']))
+        else:
+            print("No result")
+    except:
+        print("Not a valid JSON")
