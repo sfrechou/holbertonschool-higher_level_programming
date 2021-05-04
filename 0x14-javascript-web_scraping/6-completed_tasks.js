@@ -17,8 +17,7 @@ request(url, function (error, response, body) {
           done++;
         }
       } else {
-        if (done != 0 && i > 0)
-        {
+        if (done !== 0 && i > 0) {
           dict[results[i - 1].userId] = done;
           done = 0;
           currentId = results[i].userId;
