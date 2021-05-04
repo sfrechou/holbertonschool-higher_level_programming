@@ -4,7 +4,7 @@ const num = argu[2];
 const url = 'https://swapi-api.hbtn.io/api/films/' + num;
 const request = require('request');
 
-request(url, function (error, body) {
+request(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
