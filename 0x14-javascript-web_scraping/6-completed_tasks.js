@@ -17,10 +17,13 @@ request(url, function (error, response, body) {
           done++;
         }
       } else {
-        dict[results[i - 1].userId] = done;
-        done = 0;
-        currentId = results[i].userId;
-        i--;
+        if (done != 0)
+        {
+          dict[results[i - 1].userId] = done;
+          done = 0;
+          currentId = results[i].userId;
+          i--;
+        }
       }
     }
     dict[results[results.length - 1].userId] = done;
