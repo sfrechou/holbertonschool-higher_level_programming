@@ -3,12 +3,13 @@ const argu = process.argv;
 const url = argu[2];
 const request = require('request');
 
+const dict = {};
 request(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
     const results = JSON.parse(body);
-    const dict = {};
+
     let currentId = results[0].userId;
     let done = 0;
     for (let i = 0; i < results.length; i++) {
@@ -26,7 +27,7 @@ request(url, function (error, response, body) {
       }
     }
     dict[results[results.length - 1].userId] = done;
-    console.log(dict);
   }
+  console.log(dict);
 }
 );
