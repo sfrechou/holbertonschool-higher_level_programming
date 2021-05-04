@@ -1,6 +1,5 @@
 #!/usr/bin/node
-const argu = process.argv;
-const url = argu[2];
+const url = 'https://jsonplaceholder.typicode.com/todos';
 const request = require('request');
 
 request(url, function (error, response, body) {
